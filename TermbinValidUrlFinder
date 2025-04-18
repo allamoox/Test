@@ -1,0 +1,1 @@
+for i in {1..100}; do u=https://termbin.com/$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c4); s=$(curl -s -o /dev/null -w "%{http_code}" "$u"); [ "$s" = "200" ] && echo "[+$i] $u" >> valid || echo "[-$i] $u ($s)"; sleep 1; done
